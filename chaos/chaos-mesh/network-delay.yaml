@@ -1,0 +1,13 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: apigateway-delay
+spec:
+  action: delay
+  mode: one
+  selector:
+    labelSelectors:
+      app: apigateway
+  delay:
+    latency: "300ms"
+  duration: "1m"

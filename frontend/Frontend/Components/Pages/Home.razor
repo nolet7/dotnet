@@ -1,0 +1,27 @@
+﻿@page "/"
+
+<h3>MicroShop Frontend</h3>
+
+<button class="btn btn-primary" @onclick="PlaceOrder">
+    Place Order
+</button>
+
+<p>@result</p>
+
+@code {
+    string result = "";
+
+    async Task PlaceOrder()
+    {
+        try
+        {
+            var http = new HttpClient();
+            var response = await http.PostAsync("http://apigateway/orders", null);
+            result = await response.Content.ReadAsStringAsync();
+        }
+        catch (Exception ex)
+        {
+            result = "Error: " + ex.Message;
+        }
+    }
+}

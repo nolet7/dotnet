@@ -1,0 +1,8 @@
+groups:
+- name: microshop-slo
+  rules:
+  - record: slo:orders:availability
+    expr: |
+      sum(rate(http_requests_total{service="apigateway",code!~"5.."}[5m]))
+      /
+      sum(rate(http_requests_total{service="apigateway"}[5m]))

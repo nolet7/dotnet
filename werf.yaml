@@ -1,0 +1,22 @@
+project: dotnet-microshop
+configVersion: 1
+
+---
+image: orderservice
+context: order-service/OrderService
+dockerfile: Dockerfile
+
+---
+image: inventoryservice
+context: inventory-service/InventoryService
+dockerfile: Dockerfile
+
+---
+image: paymentservice
+context: payment-service/PaymentService
+dockerfile: Dockerfile
+
+---
+image: apigateway
+context: api-gateway/ApiGateway
+dockerfile: Dockerfile

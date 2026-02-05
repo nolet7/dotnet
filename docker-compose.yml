@@ -1,0 +1,26 @@
+
+services:
+  inventoryservice:
+    image: noletengine/inventoryservice:latest
+    ports:
+      - "5001:5001"
+
+  paymentservice:
+    image: noletengine/paymentservice:latest
+    ports:
+      - "5002:5002"
+
+  orderservice:
+    image: noletengine/orderservice:latest
+    ports:
+      - "5000:5000"
+    depends_on:
+      - inventoryservice
+      - paymentservice
+
+  apigateway:
+    image: noletengine/apigateway:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - orderservice

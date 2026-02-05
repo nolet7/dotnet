@@ -1,0 +1,4 @@
+- Designed SRE-grade microservices platform using Docker, Helm, and Argo CD
+- Implemented SLOs and error budgets with Prometheus and Grafana
+- Executed chaos testing with Chaos Mesh and k6
+- Built GitOps workflows supporting dev/prod isolation

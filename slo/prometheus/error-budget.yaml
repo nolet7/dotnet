@@ -1,0 +1,8 @@
+groups:
+- name: error-budget
+  rules:
+  - alert: ErrorBudgetBurn
+    expr: slo:orders:availability < 0.99
+    for: 2m
+    labels:
+      severity: critical
